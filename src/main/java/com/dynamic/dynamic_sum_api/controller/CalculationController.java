@@ -4,7 +4,7 @@ import com.dynamic.dynamic_sum_api.model.dto.CalculationResponse;
 import com.dynamic.dynamic_sum_api.service.CalculationService;
 import com.dynamic.dynamic_sum_api.service.CallLogService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +22,7 @@ public class CalculationController {
         this.callLogService = callLogService;
     }
 
-    @GetMapping("/calculate")
+    @PostMapping("/calculate")
     public ResponseEntity<CalculationResponse> calculate(
             @RequestParam double num1,
             @RequestParam double num2) {

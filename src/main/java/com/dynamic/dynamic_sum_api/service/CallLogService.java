@@ -1,7 +1,12 @@
 package com.dynamic.dynamic_sum_api.service;
 
+import com.dynamic.dynamic_sum_api.model.dto.CallLogDTO;
 import com.dynamic.dynamic_sum_api.model.entity.CallLog;
 import com.dynamic.dynamic_sum_api.repository.CallLogRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
@@ -26,5 +31,11 @@ public class CallLogService {
         callLog.setStatus(status);
 
         callLogRepository.save(callLog);
+    }
+
+    public Page<CallLogDTO> getCallLogs(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by("timestamp").descending());
+        return callLogRepository.findAll(pageable)
+                .map(CallLogDTO::fromEntity);
     }
 }
