@@ -28,7 +28,7 @@ API REST desarrollada con Java 21 y Spring Boot 3.2 para realizar cálculos con 
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/dynamic-sum-api.git
+   git clone https://github.com/juanalsa/dynamic-sum-api.git
    cd dynamic-sum-api
    ```
 
