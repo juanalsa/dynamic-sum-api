@@ -8,7 +8,15 @@ import java.util.Random;
 @Service
 public class ExternalPercentageService {
 
-    private final Random random = new Random();
+    private Random random = new Random();
+
+    public ExternalPercentageService(Random random) {
+        this.random = random;
+    }
+
+    public ExternalPercentageService() {
+        this(new Random());
+    }
 
     @Cacheable("percentage")
     public double getPercentage() {
